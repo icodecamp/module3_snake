@@ -1,4 +1,3 @@
-from collections import namedtuple
 import pygame
 import random
 
@@ -6,9 +5,6 @@ BOARD_LENGTH = 32
 OFFSET = 16
 WHITE = (255, 255, 255)
 BLACK = (0, 0, 0)
-
-DIRECTIONS = namedtuple('DIRECTIONS',
-        ['Up', 'Down', 'Left', 'Right'])(0, 1, 2, 3)
 
 def is_food(board, point):
     return board[point[0]][point[1]] == 2

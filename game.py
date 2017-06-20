@@ -14,25 +14,31 @@ def initialize_game():
     food = utils.generate_food(board)
     return clock, board, snake, food
 
+def end_game(game, score):
+    if utils.play_again(game, score):
+        return run(game)
+    else:             
+        return "done"
+
 def run(game): 
     clock, board, snake, food = initialize_game()
     while True:
         clock.tick(5*SNAKE_SPEED)
-        # Event processing
+
+        ##### Look for keyboard events! #########
+        new_direction = None
         events = pygame.event.get()
         for event in events: 
-            if event.type == pygame.QUIT:
+            if event.type == pygame.QUIT or event.key == pygame.K_ESCAPE:
                 return "done"
-        snake.process_keyboard_events(events)
+            if event.type == pygame.KEYDOWN:
+                new_direction = event.key
 
-        # Game logic
-        next_head = snake.move()
+        ## Move snake
+        next_head = snake.move(new_direction)
 
         if (utils.is_wall(board, next_head)):
-            if utils.play_again(game, snake.score):
-                return run(game)
-            else:             
-                return "done"
+            return end_game(game, snake.score)
 
         if utils.is_food(board, next_head):
             snake.increase_score()
