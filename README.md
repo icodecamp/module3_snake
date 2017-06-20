@@ -10,4 +10,4 @@ This project contains three main files
   
 The project is not complete. The `move(self, input_direction)` function in snake.py is incomplete. The responsibility of this function is to take in a direction as an input (left, right, up, or down), and output will be the next coordinates of the "head" of the snake.
 
-The tutorial for this project can be found at: https://icodecamp.github.io/lessons/3-flow-control/
+The tutorial for this project can be found at: https://icodecamp.github.io/lessons/3-conditional-statements/
