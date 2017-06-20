@@ -6,6 +6,10 @@ OFFSET = 16
 WHITE = (255, 255, 255)
 BLACK = (0, 0, 0)
 
+def is_valid_direction(direction):
+    valid_directions = [pygame.K_UP, pygame.K_DOWN, pygame.K_RIGHT, pygame.K_LEFT]
+    return direction in valid_directions
+
 def is_food(board, point):
     return board[point[0]][point[1]] == 2
 

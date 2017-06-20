@@ -14,7 +14,7 @@ class Snake(object):
         self.score = 0
         self.current_direction = right
         self.deque = deque()
-        self.deque.append((0, 0))
+        self.deque.append((12, 15))
 
     def increase_score(self):
         self.tailmax += 2
@@ -24,33 +24,12 @@ class Snake(object):
         location = self.deque.pop()
         self.deque.append(location)
         return location
-
-    def get_opposite_direction(self):
-        if self.current_direction == left:
-            return right
-        if self.current_direction == right:
-            return left
-        if self.current_direction == up:
-            return down
-        if self.current_direction == down:
-            return up
-
+        
     def move(self, input_direction):
-        if input_direction != None:
-            if self.get_opposite_direction() != input_direction:
-                self.current_direction = input_direction
-
-        ## get the current location of the head of the snake 
         location = self.get_head_location()
-
-        ## update the 
-        if (self.current_direction == up):
-            return (location[0] - 1, location[1])
-        elif (self.current_direction == down):
-            return (location[0] + 1, location[1])
-        elif (self.current_direction == left):
-            return (location[0], location[1] - 1)
-        elif (self.current_direction == right):
-            return (location[0], location[1] + 1)
-        else:
-            return
+        return (location[0], location[1] + 1)
+        # TODO: Check to see if input_direction is valid
+        # TODO: If input_direction is right, new location that is 1 block right 
+        # TODO: If input_direction is left, new location that is 1 block left 
+        # TODO: If input_direction is up, new location that is 1 block up 
+        # TODO: If input_direction is down, new location that is 1 block down 
