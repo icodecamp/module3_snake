@@ -1,5 +1,5 @@
 from collections import deque
-import pygame
+
 
 up = pygame.K_UP
 down = pygame.K_DOWN
