@@ -38,7 +38,7 @@ class Snake(object):
         if input_direction != None:
             if self.get_opposite_direction() != input_direction:
                 self.current_direction = input_direction
-                
+
         location = self.get_head_location()
         move_right = (location[0], location[1] + 1)
         move_left = (location[0], location[1] - 1)
@@ -46,13 +46,11 @@ class Snake(object):
         move_down = (location[0] + 1, location[1])
         direction =  self.current_direction
 
-        ### TODO: Fix the if, elif, else statements so
-        ### the snake moves in the right direction
         if (direction == up):
             return move_up
-        ????:
-            return ????
-        ????:
-            return ????
-        ????:
-            return ????
+        elif (direction == down):
+            return move_down
+        elif (direction == left):
+            return move_left
+        else:
+            return move_right
